@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Produto>
+@{
+    ViewData["Title"] = "index";
+}
+<div class="panel panel-info panel-controls">
+    <div class="panel panel-heading">
+        <h3>Lista de Produtos</h3>
+    </div>
+    <div class="panel panel-body">
+        <p>
+            <a asp-controller="Produto" asp-action="Create" class="btn btn-info">Adicionar Produto</a>
+        </p>
+
+        <table class=" table table-bordered table-hover">
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Preço</th>
+                <th>Estoque</th>
+                <th></th>
+            </tr>
+            @foreach(var item in Model)
+            {
+        <tr>
+            <td>
+                @Html.DisplayTextFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayTextFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayTextFor(modelItem => item.Preco)
+            </td>
+            <td>
+                @Html.DisplayTextFor(modelItem => item.Estoque)
+            </td>
+            <td>
+                <a title="Editar Produto" asp-controller="Produto" asp-action="Edit" asp-route-id="@item.Id"><span>Editar</span></a>
+                <a title="Detalhes do Produto" asp-controller="Produto" asp-action="Details" asp-route-id="@item.Id"><span>Detalhes</span></a>
+                <a title="Excluir Produto" asp-controller="Produto" asp-action="Delete" asp-route-id="@item.Id"><span>Excluir</span></a>
+
+            </td>
+             </tr>
+            }
+        </table>
+    </div>
+</div>
+
+
+

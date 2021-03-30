@@ -1,0 +1,24 @@
+﻿@model CadastroProduto.Models.Produto
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+
+<h4>Editar Produto</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <partial name="_edit_create">
+                <div class="form-group">
+                    <input type="submit" value="Editar Produto" class="btn btn-success" />
+                    <a asp-action="Index">Voltar para a listagem</a>
+                </div>
+        </form>
+    </div>
+</div>
+
+
+
